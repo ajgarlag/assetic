@@ -118,7 +118,7 @@ class AsseticTokenParser extends AbstractTokenParser
                 $attributes[$key] = $stream->expect(Token::STRING_TYPE)->getValue();
             } else {
                 $token = $stream->getCurrent();
-                throw new SyntaxError(sprintf('Unexpected token "%s" of value "%s"', Token::typeToEnglish($token->getType()), $token->getValue()), $token->getLine(), $stream->getFilename());
+                throw new SyntaxError(sprintf('Unexpected token "%s" of value "%s"', Token::typeToEnglish($token->getType()), $token->getValue()), $token->getLine(), $stream->getSourceContext());
             }
         }
 
